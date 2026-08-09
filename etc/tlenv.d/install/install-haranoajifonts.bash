@@ -1,7 +1,7 @@
 after_install install_latest_haranoajifonts
 
 install_latest_haranoajifonts() {
-    local arch=$(find "${TLENV_ROOT}/versions/${VERSION_NAME}/bin/" -type d -maxdepth 1|grep '//'|sed "s,.*/,,")
+    local arch=$(find "${TLENV_ROOT}/versions/${VERSION_NAME}/bin" -mindepth 1 -maxdepth 1 -type d|sed "s,.*/,,")
     local tlpath="${TLENV_ROOT}/versions/${VERSION_NAME}/bin/"${arch}
     local __kpsewhich=${tlpath}/kpsewhich
     local __mktexlsr=${tlpath}/mktexlsr
